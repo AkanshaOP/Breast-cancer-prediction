@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Sakhi - AI Based Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <header>
+            <h1>Breast <span class="highlight">Sakhi</span></h1>
+            <p>Your AI Companion for Early Detection</p>
+        </header>
+
+        <div class="glass-card">
+            <h2>Enter Clinical Details</h2>
+            <form id="predictionForm" onsubmit="event.preventDefault(); predict();">
+
+                <div class="form-group">
+                    <label for="patient_name">Patient Name</label>
+                    <input type="text" id="patient_name" placeholder="e.g. Jane Doe" required
+                        style="width: 100%; margin-bottom: 20px;">
+                </div>
+
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label for="mean_radius">Mean Radius</label>
+                        <input type="number" step="any" id="mean_radius" placeholder="e.g. 14.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_texture">Mean Texture</label>
+                        <input type="number" step="any" id="mean_texture" placeholder="e.g. 20.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_perimeter">Mean Perimeter</label>
+                        <input type="number" step="any" id="mean_perimeter" placeholder="e.g. 90.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_area">Mean Area</label>
+                        <input type="number" step="any" id="mean_area" placeholder="e.g. 600.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_smoothness">Mean Smoothness</label>
+                        <input type="number" step="any" id="mean_smoothness" placeholder="e.g. 0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_compactness">Mean Compactness</label>
+                        <input type="number" step="any" id="mean_compactness" placeholder="e.g. 0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_concavity">Mean Concavity</label>
+                        <input type="number" step="any" id="mean_concavity" placeholder="e.g. 0.05" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_concave_points">Mean Concave Points</label>
+                        <input type="number" step="any" id="mean_concave_points" placeholder="e.g. 0.05" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_symmetry">Mean Symmetry</label>
+                        <input type="number" step="any" id="mean_symmetry" placeholder="e.g. 0.2" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_fractal_dimension">Mean Fractal Dimension</label>
+                        <input type="number" step="any" id="mean_fractal_dimension" placeholder="e.g. 0.06" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="predict-btn">Analyze Results</button>
+
+            </form>
+
+            <div id="result" class="result-box hidden">
+                <h3 id="prediction-text"></h3>
+                <p>Confidence: <span id="confidence-text"></span></p>
+                <div id="advice-text"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
