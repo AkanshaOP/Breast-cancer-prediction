@@ -40,6 +40,10 @@ def predict():
         # Predict
         prediction = model.predict(scaled_input)[0]
         prediction_proba = model.predict_proba(scaled_input)[0]
+
+        print(f"DEBUG: Input for {features_list} -> {input_data}")
+        print(f"DEBUG: Scaled Input -> {scaled_input}")
+        print(f"DEBUG: Proba -> {prediction_proba}")
         
         # Benign (0) or Malignant (1) - Check sklearn target names
         # Usually target 0 is Malignant and 1 is Benign in some datasets, let's verify.
@@ -62,4 +66,4 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
